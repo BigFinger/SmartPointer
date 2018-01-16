@@ -1,5 +1,7 @@
+#pragma once
 #include <iostream>
 #include "config.h"
+#include "weakref_impl.h"
 using namespace std;
 
 class SMART_POINTER_EXPORT RefBase{
@@ -9,8 +11,6 @@ public:
 	void forceIncStrong(const void* id) const;
 	int getStrongCount() const;
 public:
-	class SMART_POINTER_EXPORT weakref_type;
-
 	weakref_type* createWeak(const void* id) const;
 	weakref_type* getWeakRefs() const;
 	inline void printRefs() const;
@@ -34,7 +34,6 @@ protected:
 	};
 private:
 	friend class weakref_type;
-	class weakref_impl;
 	RefBase(const RefBase& o);
 	RefBase& operator = (const RefBase& o);
 	weakref_impl* const mRefs;

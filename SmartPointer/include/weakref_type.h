@@ -1,8 +1,7 @@
 #pragma once
 #include "config.h"
-#include "RefBase.h"
 
-class RefBase::weakref_type{
+class weakref_type{
 public:
 	RefBase* refBase() const;
 	void incWeak(const void* id);

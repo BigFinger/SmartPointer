@@ -1,8 +1,9 @@
+#pragma once
 #include "config.h"
 #include "RefBase.h"
 #include "weakref_type.h"
 
-class RefBase::weakref_impl:public RefBase::weakref_type{
+class weakref_impl:public weakref_type{
 public:
 	 weakref_impl(RefBase* base);
 	 ~weakref_impl();
