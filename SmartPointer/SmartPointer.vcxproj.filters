@@ -33,12 +33,18 @@
     <ClInclude Include="include\weakref_impl.h">
       <Filter>头文件\include</Filter>
     </ClInclude>
+    <ClInclude Include="include\RefCountPtr.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RefBase.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
     <ClCompile Include="src\weafref_type.cpp">
+      <Filter>源文件\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\weakref_impl.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,4 +1,3 @@
-#pragma once
 #include <windows.h>
 #include "weakref_type.h"
 #include "weakref_impl.h"
