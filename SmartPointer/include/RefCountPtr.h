@@ -36,9 +36,9 @@ public:
     COMPARE(>=)
 private:
     template<typename Y>
-    friend class sp;
+    friend class RefCountPtr;
     template<typename Y>
-    friend class wp;
+    friend class RefCountWeakPtr;
     RefCountPtr(T* p, weakref_type* refs);
     T*  m_ptr;
 };

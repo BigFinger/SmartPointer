@@ -60,11 +60,13 @@ bool weakref_type::attemptIncStrong(const void* id){
         bool allow = false;
         if (curCount == INITIAL_STRONG_VALUE)
         {
+            /* 可能只希望被弱引用 */
             allow = (impl->mFlags & RefBase::OBJECT_LIFETIME_WEAK) != RefBase::OBJECT_LIFETIME_WEAK 
                 || impl->mBase->onIncStrongAttempted(RefBase::FIRST_INC_STRONG, id);
         }
         else
         {
+            /* 之前被强引用过，若不是弱引用类型，则该对象可能已经被delete */
             allow = (impl->mFlags & RefBase::OBJECT_LIFETIME_WEAK) == RefBase::OBJECT_LIFETIME_WEAK 
                 && impl->mBase->onIncStrongAttempted(RefBase::FIRST_INC_STRONG, id);
         }

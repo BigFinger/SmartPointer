@@ -116,10 +116,12 @@
     <ClInclude Include="include\config.h" />
     <ClInclude Include="include\RefBase.h" />
     <ClInclude Include="include\RefCountPtr.h" />
+    <ClInclude Include="include\RefCountWeakPtr.h" />
     <ClInclude Include="include\weakref_impl.h" />
     <ClInclude Include="include\weakref_type.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\testClass.cpp" />
     <ClCompile Include="src\RefBase.cpp" />
     <ClCompile Include="src\weafref_type.cpp" />
     <ClCompile Include="src\weakref_impl.cpp" />

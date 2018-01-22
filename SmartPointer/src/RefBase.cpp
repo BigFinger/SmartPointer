@@ -18,7 +18,7 @@ void RefBase::incStrong(const void* id) const{
     const int c = InterlockedExchangeAdd((volatile LONG*)&refs->mStrong, 1);
     LOG_ASSERT(c > 0, "incStrong() called on %p after last strong ref", refs);
     if (c != INITIAL_STRONG_VALUE)
-    {
+    {/* 判断是否是第一次计数 */
         return;
     }
     InterlockedExchangeAdd((volatile LONG*)&refs->mStrong, -INITIAL_STRONG_VALUE);
@@ -99,7 +99,7 @@ void RefBase::onLastStrongRef(const void* /*id*/)
 
 bool RefBase::onIncStrongAttempted(unsigned int flags, const void* id)
 {
-    return (flags&FIRST_INC_STRONG) ? true : false;
+    return (flags & FIRST_INC_STRONG) ? true : false;
 }
 
 void RefBase::onLastWeakRef(const void* /*id*/)

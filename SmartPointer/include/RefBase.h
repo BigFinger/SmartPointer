@@ -21,12 +21,13 @@ protected:
     void extendObjectLifetime(int mode);
     virtual void onFirstRef();
     virtual void onLastStrongRef(const void* id);
+    /* 控制是否允许被强引用 */
     virtual bool onIncStrongAttempted(unsigned int flags, const void* id);
     virtual void onLastWeakRef(const void* id);
     enum 
     {
-        OBJECT_LIFETIME_WEAK = 0X0001,
-        OBJECT_LIFETIME_FOREVER = 0X0003
+        OBJECT_LIFETIME_WEAK = 0X0001,          /* 受弱引用计数控制 */
+        OBJECT_LIFETIME_FOREVER = 0X0003        /* 生命周期既不受强引用控制，也不受弱引用控制，谁new谁delete */
     };
     enum
     {

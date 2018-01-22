@@ -34,6 +34,7 @@ public:
     void set_object_and_refs(T* other, weakref_type* refs);
 
     RefCountPtr<T> 
+    /* 强制升级为强引用指针 */
     promote() const;
 
     void clear();
