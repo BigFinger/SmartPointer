@@ -1,7 +1,9 @@
 #pragma once
 #include "config.h"
 
-class weakref_type{
+class RefBase;
+
+class SMART_POINTER_EXPORT weakref_type{
 public:
     RefBase* refBase() const;
     void incWeak(const void* id);

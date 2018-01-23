@@ -3,6 +3,9 @@
 #include "RefBase.h"
 #include "weakref_type.h"
 
+template<typename T> 
+class RefCountWeakPtr;
+
 template<typename T>
 class RefCountPtr{
 public:
@@ -15,7 +18,7 @@ public:
     RefCountPtr(const RefCountPtr<U>& other);
     ~RefCountPtr();
 public:
-    RefCountPtr& operator = (T& other);
+    RefCountPtr& operator = (T* other);
     RefCountPtr& operator = (const RefCountPtr<T>& other);
     template<typename U>
     RefCountPtr& operator = (const RefCountPtr<U>& other);
@@ -28,12 +31,12 @@ public:
     void force_set(T* other);
     void clear();
 public:
-    COMPARE(==)
-    COMPARE(!=)
-    COMPARE(>)
-    COMPARE(<)
-    COMPARE(<=)
-    COMPARE(>=)
+    COMPARE(== )
+        COMPARE(!= )
+        COMPARE(> )
+        COMPARE(< )
+        COMPARE(<= )
+        COMPARE(>= )
 private:
     template<typename Y>
     friend class RefCountPtr;
@@ -74,7 +77,7 @@ RefCountPtr<T>::RefCountPtr(const RefCountPtr<U>& other):m_ptr(other.m_ptr){
 
 template<typename T>
 RefCountPtr<T>::~RefCountPtr(){
-    if (m_ptr £¡= NULL)
+    if (m_ptr != NULL)
     {
         m_ptr->decStrong(this);
     }
@@ -141,17 +144,17 @@ RefCountPtr<T>& RefCountPtr<T>::operator = (U* other){
 }
 
 template<typename T>
-T& operator*() const{
+T& RefCountPtr<T>::operator*() const{
     return *m_ptr;
 }
 
 template<typename T>
-T* operator->() const{
+T* RefCountPtr<T>::operator->() const{
     return m_ptr;
 }
 
 template<typename T>
-T* get() const{
+T* RefCountPtr<T>::get() const{
     return m_ptr;
 }
 

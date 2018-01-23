@@ -121,8 +121,8 @@
     <ClInclude Include="include\weakref_type.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\testClass.cpp" />
     <ClCompile Include="src\RefBase.cpp" />
+    <ClCompile Include="src\testClass.cpp" />
     <ClCompile Include="src\weafref_type.cpp" />
     <ClCompile Include="src\weakref_impl.cpp" />
   </ItemGroup>

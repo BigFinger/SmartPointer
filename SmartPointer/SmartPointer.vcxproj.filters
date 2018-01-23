@@ -50,7 +50,7 @@
     <ClCompile Include="src\weakref_impl.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
-    <ClCompile Include="include\testClass.cpp">
+    <ClCompile Include="src\testClass.cpp">
       <Filter>源文件\src</Filter>
     </ClCompile>
   </ItemGroup>

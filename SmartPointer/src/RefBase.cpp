@@ -68,11 +68,6 @@ int RefBase::getStrongCount() const{
     return mRefs->mStrong;
 }
 
-weakref_type* RefBase::createWeak(const void* id) const{
-    mRefs->incWeak(id);
-    return mRefs;
-}
-
 weakref_type* RefBase::getWeakRefs() const{
     return mRefs;
 }

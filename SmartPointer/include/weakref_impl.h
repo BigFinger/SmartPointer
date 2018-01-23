@@ -1,12 +1,10 @@
 #pragma once
 #include "config.h"
-#include "RefBase.h"
 #include "weakref_type.h"
 
 class weakref_impl:public weakref_type{
 public:
     weakref_impl(RefBase* base);
-    ~weakref_impl();
     void addStrongRef(const void* id);
     void removeStrongRef(const void* id);
     void addWeakRef(const void* id);

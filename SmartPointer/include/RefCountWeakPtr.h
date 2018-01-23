@@ -4,8 +4,6 @@
 template <typename T>
 class RefCountWeakPtr{
 public:
-    typedef typename RefBase::weakref_type weakref_type;
-
     RefCountWeakPtr();
 
     RefCountWeakPtr(T* other);
@@ -42,7 +40,7 @@ public:
     weakref_type* get_refs() const;
 
     T* unsafe_get() const;
-
+public:
     COMPARE(== )
         COMPARE(!= )
         COMPARE(> )
@@ -249,11 +247,11 @@ void RefCountWeakPtr<T>::clear()
 }
 
 template<typename T>
-weakref_type* RefCountWeakPtr::get_refs() const {
+weakref_type* RefCountWeakPtr<T>::get_refs() const {
     return m_refs; 
 }
 
 template<typename T>
-T* RefCountWeakPtr::unsafe_get() const { 
+T* RefCountWeakPtr<T>::unsafe_get() const { 
     return m_ptr; 
 }
