@@ -13,45 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\include">
-      <UniqueIdentifier>{f54863d7-b0bc-4067-9064-3d594252ce37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\src">
-      <UniqueIdentifier>{b51f707d-9166-4b34-9f92-c84c0b44490f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\config.h">
-      <Filter>头文件\include</Filter>
+      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\RefBase.h">
-      <Filter>头文件\include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\weakref_type.h">
-      <Filter>头文件\include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\weakref_impl.h">
-      <Filter>头文件\include</Filter>
+      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\RefCountPtr.h">
-      <Filter>头文件\include</Filter>
+      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\RefCountWeakPtr.h">
-      <Filter>头文件\include</Filter>
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\weakref_impl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\weakref_type.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RefBase.cpp">
-      <Filter>源文件\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\weafref_type.cpp">
-      <Filter>源文件\src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\weakref_impl.cpp">
-      <Filter>源文件\src</Filter>
+      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\testClass.cpp">
-      <Filter>源文件\src</Filter>
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\weafref_type.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\weakref_impl.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
