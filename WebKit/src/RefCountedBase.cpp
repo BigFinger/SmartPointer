@@ -1,29 +1,42 @@
 #include "RefCountedBase.h"
 
 bool RefCountedBase::hasOneRef() const{
-    if (ref_count_ == 1)
+    if (m_refCount == 1)
     {
         return true;
     }
     return false;
 }
 
-RefCountedBase::RefCountedBase():ref_count_(0),in_dtor_(false){}
+int RefCountedBase::refCount() const{
+    return m_refCount;
+}
+
+RefCountedBase::RefCountedBase():m_refCount(1),m_deletionHasBegun(false), m_adoptionIsRequired(true){}
 
 RefCountedBase::~RefCountedBase(){}
 
-void RefCountedBase::addRef() const{
-    ref_count_++;
+void RefCountedBase::ref(){
+    m_refCount++;
 }
 
-bool RefCountedBase::release() const{
-    if (--ref_count_ == 0)
-    {
-        in_dtor_ = true;
+bool RefCountedBase::derefBase(){
+    bool result = false;
+    m_refCount--;
+    if (m_refCount == 0)
+    {/* 引用计数已经为0 */
+        m_deletionHasBegun = result = true;
     }
-    else
+    return result;
+}
+
+bool RefCountedBase::deletionHasBegun() const{
+    return m_deletionHasBegun;
+}
+
+void adopted(RefCountedBase *object){
+    if (object != NULL)
     {
-        in_dtor_ = false;
+        object->m_adoptionIsRequired = false;
     }
-    return in_dtor_;
 }

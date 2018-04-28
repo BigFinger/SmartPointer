@@ -1,18 +1,18 @@
 #pragma once
+#include "config.h"
 
 class SMART_POINTER_EXPORT RefCountedThreadSafeBase{
 public:
-    bool hasOneRef() const;
-
-protected:
-    RefCountedThreadSafeBase();
+    RefCountedThreadSafeBase(int initialRefCount = 1);
     ~RefCountedThreadSafeBase();
 
+public:
+    void ref();
+    bool hasOneRef() const;
+    int refCount() const;
 protected:
-    void addRef() const;
-    bool release() const;
-
+    bool derefBase();
 private:
-    mutable int ref_count_;
-    mutable bool in_dtor_;
+    int m_refCount;
 };
+

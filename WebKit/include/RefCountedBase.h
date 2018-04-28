@@ -5,12 +5,16 @@ class SMART_POINTER_EXPORT RefCountedBase{
 public:
     bool hasOneRef() const;
     void ref();
+    int refCount() const;
 protected:
     RefCountedBase();
     ~RefCountedBase();
-    void addRef() const;
-    bool release() const;
+protected:
+    bool derefBase();
+    bool deletionHasBegun() const;
 private:
-    mutable bool in_dtor_;
-    mutable int  ref_count_;
+    friend void adopted(RefCountedBase*);
+    int m_refCount;
+    bool m_deletionHasBegun;
+    bool m_adoptionIsRequired;
 };
